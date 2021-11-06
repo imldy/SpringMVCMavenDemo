@@ -2,6 +2,7 @@ package cn.imldy.springmvc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,12 +18,12 @@ import javax.servlet.http.HttpServletResponse;
 public class FirstControllerAnnoation {
 
     // 映射一个请求或一个方法，接收到对应的URL请求时被调用
-    @RequestMapping(value = "/firstController2")
+    @RequestMapping(value = "/firstController2", method = RequestMethod.GET)
     public ModelAndView handleRequest(HttpServletRequest httpServletRequest,
                                       HttpServletResponse httpServletResponse) throws Exception {
         ModelAndView modelAndView = new ModelAndView();
         // 向ModelAndView添加一个名为msg的字符串对象
-        modelAndView.addObject("msg","我的第一个 Spring MVC 程序 2 ——李德银");
+        modelAndView.addObject("msg", "我的第一个 Spring MVC 程序 2 ——李德银");
         // 设置返回的试图路径名为某jsp文件，请求会被转发到此jsp页面
         modelAndView.setViewName("/WEB-INF/views/first.jsp");
         return modelAndView;
