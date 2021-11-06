@@ -1,6 +1,8 @@
 package cn.imldy.springmvc.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,7 +20,8 @@ import javax.servlet.http.HttpServletResponse;
 public class FirstControllerAnnoation {
 
     // 映射一个请求或一个方法，接收到对应的URL请求时被调用
-    @RequestMapping(value = "/firstController2", method = RequestMethod.GET)
+    @GetMapping(value = "/firstController2")
+    // @RequestMapping(value = "/firstController2", method = RequestMethod.GET)
     public ModelAndView handleRequest(HttpServletRequest httpServletRequest,
                                       HttpServletResponse httpServletResponse) throws Exception {
         ModelAndView modelAndView = new ModelAndView();
@@ -28,4 +31,24 @@ public class FirstControllerAnnoation {
         modelAndView.setViewName("/WEB-INF/views/first.jsp");
         return modelAndView;
     }
+
+
+    @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
+    public ModelAndView selectUserById(@PathVariable("id") String id) {
+        // 如果没有@PathVariable("id")，则只会接收URL请求的query值
+        System.out.println("id = " + id);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/WEB-INF/views/sucess.jsp");
+        return modelAndView;
+    }
+
+    @GetMapping(value = "/user2/{id}")
+    public ModelAndView selectUserById2(@PathVariable("id") String id) {
+        // 如果没有@PathVariable("id")，则只会接收URL请求的query值
+        System.out.println("2 id = " + id);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/WEB-INF/views/sucess.jsp");
+        return modelAndView;
+    }
+
 }
