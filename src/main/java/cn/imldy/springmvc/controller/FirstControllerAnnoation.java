@@ -1,6 +1,7 @@
 package cn.imldy.springmvc.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +31,15 @@ public class FirstControllerAnnoation {
         // 设置返回的试图路径名为某jsp文件，请求会被转发到此jsp页面
         modelAndView.setViewName("/WEB-INF/views/first.jsp");
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/firstController5")
+    public String firstController5(HttpServletRequest request,
+                                   HttpServletResponse response,
+                                   Model model) {
+        model.addAttribute("msg", "第一个 Spring MVC 程序，使用注解+自定义视图解析器");
+        // 实际是将model添加的数据，传给first.jsp，并生成html，返回出去
+        return "first";
     }
 
 

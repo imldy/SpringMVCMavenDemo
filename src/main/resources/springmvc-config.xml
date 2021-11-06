@@ -20,6 +20,14 @@
     <context:component-scan base-package="cn.imldy.springmvc.controller"/>
     <!--加入此行，否则GetMapping注解无效-->
     <mvc:annotation-driven/>
+    <!--视图解析器-->
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--设置前缀和后缀后，映射方法中所定义的view的路径可以简化
+                例如“/WEB-INF/views/first.jsp”可简化为“first”-->
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
 
     <!--以下三个在Spring4.0之后无需显式配置-->
     <!--1.处理器映射器，将处理器Handle的name作为url(/firstController)进行查找-->
