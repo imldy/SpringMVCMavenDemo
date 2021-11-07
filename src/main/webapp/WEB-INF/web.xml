@@ -29,4 +29,27 @@
         <!--容器启动时立即加载Servlet-->
         <load-on-startup>1</load-on-startup>
     </servlet>
+
+    <!--使用Spring提供的编码过滤器统一编码 解决中文乱码问题-->
+    <!--如果System.out.println输出仍然是乱码（黑菱形问号等），可配置 Tomcat VM options -Dfile.encoding=UTF-8-->
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <!--配置编码过滤器类-->
+        <filter-class>
+            org.springframework.web.filter.CharacterEncodingFilter
+        </filter-class>
+        <!--初始化参数-->
+        <init-param>
+            <!--设置统一的参数UTF-8，所有请求内容都将以UTF-8的编码格式进行解析-->
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <!--交由CharacterEncodingFilter编码过滤器类进行处理-->
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <!--拦截前端页面的所有请求-->
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
 </web-app>
