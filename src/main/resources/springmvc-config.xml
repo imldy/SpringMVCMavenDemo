@@ -29,6 +29,19 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!--显式的装配自定义类型转换器-->
+    <mvc:annotation-driven conversion-service="conversionService"/>
+    <!--自定义类型转换器配置-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <!--设置自定义的类型转换器-->
+                <bean class="cn.imldy.springmvc.convert.DateConverter"/>
+            </set>
+        </property>
+    </bean>
+
+
     <!--以下三个在Spring4.0之后无需显式配置-->
     <!--1.处理器映射器，将处理器Handle的name作为url(/firstController)进行查找-->
     <!--<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>-->
