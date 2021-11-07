@@ -1,11 +1,13 @@
 package cn.imldy.springmvc.controller;
 
 import cn.imldy.springmvc.po.User;
+import cn.imldy.springmvc.vo.UserVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * @author imldy
@@ -81,4 +83,28 @@ public class UserController {
         }
         return "sucess";
     }
+
+    /**
+     * 向用户批量修改页面跳转
+     */
+    @RequestMapping("/toUserEdit")
+    public String toUserEdit() {
+        return "user_edit";
+    }
+
+    /**
+     * 接收批量修改用户的方法
+     */
+    @RequestMapping("/editUsers")
+    public String editUsers(UserVO userList) {
+        List<User> users = userList.getUsers();
+        for (User user : users) {
+            // 如果user.id不为空，则代表对该user进行了修改。为空则代表未修改
+            if (user.getId() != null) {
+                System.out.println("修改了id为" + user.getId() + "，名为" + user.getUsername() + "的用户");
+            }
+        }
+        return "sucess";
+    }
+
 }
