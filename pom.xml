@@ -18,9 +18,30 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <spring-version>4.3.6.RELEASE</spring-version>
+    <jackson-version>2.8.8</jackson-version>
   </properties>
 
   <dependencies>
+
+    <!--HttpMessageConverter接口实现类MappingJackson2HttpMessageConverter利用Jackson读写JSON数据-->
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-annotations</artifactId>
+        <version>${jackson-version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>${jackson-version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>${jackson-version}</version>
+    </dependency>
 
     <!--解决 程序包javax.servlet.http不存在 的问题-->
     <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->

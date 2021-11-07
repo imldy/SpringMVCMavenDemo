@@ -9,6 +9,11 @@
 		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          id="WebAPP_ID" version="3.0">
     <display-name>Archetype Created Web Application</display-name>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    
     <servlet-mapping>
         <servlet-name>springmvc</servlet-name>
         <!-- /根目录，代表会将所有URL请求拦截，并交由DispatcherServlet进行处理-->
