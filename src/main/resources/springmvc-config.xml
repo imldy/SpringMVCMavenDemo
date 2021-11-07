@@ -32,11 +32,20 @@
     <!--显式的装配自定义类型转换器-->
     <mvc:annotation-driven conversion-service="conversionService"/>
     <!--自定义类型转换器配置-->
-    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
-        <property name="converters">
+    <!--<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">-->
+    <!--    <property name="converters">-->
+    <!--        <set>-->
+    <!--            &lt;!&ndash;设置自定义的类型转换器&ndash;&gt;-->
+    <!--            <bean class="cn.imldy.springmvc.convert.DateConverter"/>-->
+    <!--        </set>-->
+    <!--    </property>-->
+    <!--</bean>-->
+
+    <!--自定义类型格式化转换器配置-->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="formatters">
             <set>
-                <!--设置自定义的类型转换器-->
-                <bean class="cn.imldy.springmvc.convert.DateConverter"/>
+                <bean class="cn.imldy.springmvc.convert.DateFormatter"/>
             </set>
         </property>
     </bean>
