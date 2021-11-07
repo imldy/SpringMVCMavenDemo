@@ -17,4 +17,10 @@ public class UserController {
         System.out.println("id = " + id);
         return "sucess";
     }
+
+    @RequestMapping("/selectUser2")
+    public String selectUser2(Integer id) {
+        System.out.println("id = " + id);
+        return "sucess";
+    }
 }
