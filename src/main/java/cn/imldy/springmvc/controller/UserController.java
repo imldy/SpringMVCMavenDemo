@@ -58,4 +58,27 @@ public class UserController {
         System.out.println("密码 password = " + password);
         return "sucess"; //单词写错，将错就错
     }
+
+    /**
+     * 向用户列表跳转
+     */
+    @RequestMapping("/toUser")
+    public String selectUsers() {
+        return "user";
+    }
+
+    /**
+     * 接收批量删除用户的方法
+     */
+    @RequestMapping("/deleteUsers")
+    public String deleteUsers(Integer[] ids) {
+        if (ids != null) {
+            for (Integer id : ids) {
+                System.out.println("删除了id为" + id + "的用户");
+            }
+        } else {
+            System.out.println("ids=null");
+        }
+        return "sucess";
+    }
 }
