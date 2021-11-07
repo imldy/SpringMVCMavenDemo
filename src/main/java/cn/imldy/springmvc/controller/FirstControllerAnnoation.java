@@ -43,22 +43,22 @@ public class FirstControllerAnnoation {
     }
 
 
-    @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-    public ModelAndView selectUserById(@PathVariable("id") String id) {
-        // 如果没有@PathVariable("id")，则只会接收URL请求的query值
-        System.out.println("id = " + id);
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/WEB-INF/views/sucess.jsp");
-        return modelAndView;
-    }
-
-    @GetMapping(value = "/user2/{id}")
-    public ModelAndView selectUserById2(@PathVariable("id") String id) {
-        // 如果没有@PathVariable("id")，则只会接收URL请求的query值
-        System.out.println("2 id = " + id);
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/WEB-INF/views/sucess.jsp");
-        return modelAndView;
-    }
+    // @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
+    // public ModelAndView selectUserById(@PathVariable("id") String id) {
+    //     // 如果没有@PathVariable("id")，则只会接收URL请求的query值
+    //     System.out.println("id = " + id);
+    //     ModelAndView modelAndView = new ModelAndView();
+    //     modelAndView.setViewName("/WEB-INF/views/sucess.jsp");
+    //     return modelAndView;
+    // }
+    //
+    // @GetMapping(value = "/user2/{id}")
+    // public ModelAndView selectUserById2(@PathVariable("id") String id) {
+    //     // 如果没有@PathVariable("id")，则只会接收URL请求的query值
+    //     System.out.println("2 id = " + id);
+    //     ModelAndView modelAndView = new ModelAndView();
+    //     modelAndView.setViewName("/WEB-INF/views/sucess.jsp");
+    //     return modelAndView;
+    // }
 
 }

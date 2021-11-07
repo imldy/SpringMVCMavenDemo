@@ -3,10 +3,7 @@ package cn.imldy.springmvc.controller;
 import cn.imldy.springmvc.po.User;
 import cn.imldy.springmvc.vo.UserVO;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -116,4 +113,29 @@ public class UserController {
         return user;
     }
 
+    /**
+     * 向用户批量修改页面跳转
+     */
+    @RequestMapping("/toRESTfulTest")
+    public String toRESTfulTest() {
+        return "restful";
+    }
+
+    /**
+     * 查询用户
+     * @param id 用户id
+     * @return 用户
+     */
+    @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public User selectUserById(@PathVariable("id") String id) {
+        System.out.println("id = " + id);
+        // 模拟根据id查询用户名
+        User user = new User();
+        if ("1234".equals(id)) {
+            user.setUsername("李德银");
+        }
+        // 返回JSON格式的数据
+        return user;
+    }
 }
